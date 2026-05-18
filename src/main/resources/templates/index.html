@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gated Community</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h2>Welcome to Gated Community</h2>
-    <a href="/resident">Resident Login</a><br><br>
-    <a href="/admin">Admin Login</a>
+    <div class="container">
+        <header class="site-header">
+            <h1>Welcome to Gated Community</h1>
+            <p class="lead">A simple portal to manage residents and complaints</p>
+        </header>
+
+        <main class="actions">
+            <a class="btn primary" href="/resident">Resident Login</a>
+            <a class="btn primary" href="/admin">Admin Login</a>
+        </main>
+
+        <footer class="site-footer">
+            <small>&copy; <span id="year"></span> Gated Community</small>
+        </footer>
+    </div>
+
+    <script>
+        
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
