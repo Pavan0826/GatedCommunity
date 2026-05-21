@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resident Signup</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h2>Create an Account</h2>
+
+    <div th:if="${error}">
+        <p style="color:red;" th:text="${error}"></p>
+    </div>
+
+    <form th:action="@{/resident/signup}" method="post">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" th:value="${username}" required />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required />
+        </div>
+        <div>
+            <button type="submit">Sign up</button>
+        </div>
+    </form>
+
+    <p>Already have an account? <a th:href="@{/resident}">Login here</a></p>
+    <p><a th:href="@{/}">Back to home</a></p>
+</div>
+</body>
+</html>
