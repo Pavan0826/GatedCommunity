@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Complaint</title>
+    <link rel="stylesheet" href="/css/styles.css">
+ </head>
+<body>
+<div class="container">
+    <h2>Add Complaint</h2>
+
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+
+    <div>
+        <strong>Total complaints:</strong> <span th:text="${complaintCount}">0</span>
+    </div>
+
+    <form th:action="@{/resident/complaint}" method="post">
+        <div>
+            <label>Resident Username</label>
+            <input type="text" name="residentUsername" th:value="${residentUsername}" readonly />
+        </div>
+        <div>
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" required />
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+       
+        <div>
+            <button type="submit">Submit Complaint</button>
+        </div>
+    </form>
+
+    <p><a th:href="@{/}">Back to home</a></p>
+</div>
+</body>
+</html>

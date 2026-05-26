@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Complaints</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h2 th:text="${residentUsername} + ' - Your Complaints'"></h2>
+
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            
+            <th>Category</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c : ${complaints}">
+          
+            <td th:text="${c.category}"></td>
+            <td th:text="${c.description}"></td>
+            <td th:text="${c.status}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><a th:href="@{/resident/complaint/new}">Add another complaint</a></p>
+    <p><a th:href="@{/}">Back to home</a></p>
+</div>
+</body>
+</html>
