@@ -35,7 +35,8 @@ public class ResidentController {
 			Resident resident = auth.get();
 			session.setAttribute("resident", resident);
 			model.addAttribute("message", "Login successful");
-			return "redirect:/";
+			// After login, redirect resident to the complaint list page (shows complaints and Add button)
+			return "redirect:/resident/complaint/list";
 		}
 
 		if (!residentService.existsByUsername(username)) {
